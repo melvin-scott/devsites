@@ -8,9 +8,9 @@
             <a class="" href="/CSVdata/">Files</a>
         </div>
     </nav>
-    <div class="col-2">
+    <div class="body-col-2">
         <header>Upload CSV Files</header>
-        <main class="content">
+        <main class="fileContent">
             <form enctype="multipart/form-data" method="POST" action="">
                 {% csrf_token %}
                 {{ form.as_p }}
