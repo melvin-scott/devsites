@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 0;
+}
+
+.col-1 {
+    background: #c9e4f8;
+    display: flex;
+    flex-basis: 250px;
+    max-width: 175px;
+    flex-direction: column;
+    flex: 1;
+}
+
+.col-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 5;
+    flex-grow: 4;
+}
+
+.content {
+    display: flex;
+    flex-grow: 4;
+    flex-direction: row;
+}
+
+.content > article {
+    flex: 4;
+    min-height: 60vh;
+}
+
+.reports {
+    background: #ffd800;
+    color: #000000
+}
+
+header, footer {
+    background: #0d74a8;
+    height: 20vh;
+}
+
+header, footer, article, nav {
+    padding: 1em;
+}
+
+header {
+    text-align: center;
+    vertical-align: central;
+    font-size: 36px;
+    font-weight:bold;
+}
+
+nav a:link, a:visited {
+    background-color: #36f4e2;
+    color: #000000;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+nav a:hover, a:active {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.navList {
+    list-style-type: none;
+}
+
+.navList li{
+    padding-bottom: 25px;
+}
+
+#results .csvList {
+    list-style-type: none;
+}
+
+#results .csvList li img {
+    vertical-align: text-bottom;
+    height: 25px;
+}

@@ -1,0 +1,80 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'csvdata/csvcss.css' %}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+<body>
+    <nav class="col-1">
+        <ul class="navList">
+            <li>
+                <a class="" href="/CSVdata/">Files</a>
+            </li>
+            <li>
+                <a class="" href="/CSVdata/upload">Upload</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="col-2">
+        <header>CSV File: {{ filename }}</header>
+        <main class="content">
+            <div id="container" style="width: 100%; min-width: 310px; height: 400px; margin: 0 auto; flex-basis: 100%;" class="border"></div>
+        </main>
+        <footer></footer>
+    </div>
+</body>
+
+<script>
+      _categories = {{list_groups|safe}};
+      _values = {{list_data|safe}};
+
+      Highcharts.chart('container', {
+	  chart: {
+              type: 'column'
+	  },
+	  title: {
+              text: 'Entities with same Year'
+	  },
+	  subtitle: {
+              text: ')'
+	  },
+	  xAxis: {
+              categories:_categories,
+              crosshair: true
+	  },
+	  yAxis: {
+              min: 0,
+              title: {
+		  text: ''
+              }
+	  },
+	  tooltip: {
+              headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+              pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+		  '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+              footerFormat: '</table>',
+              shared: true,
+              useHTML: true
+	  },
+          plotOptions: {
+              pie: {
+                  size: '100%',
+                  height: '100%',
+                  dataLabels: {
+                      enabled: false
+                  }
+              },
+              column: {
+		  pointPadding: 0.2,
+		  borderWidth: 0
+        }
+	  },
+	  series: [{
+              name: '# Count',
+              data: _values
+
+	  }]
+      });
+</script>

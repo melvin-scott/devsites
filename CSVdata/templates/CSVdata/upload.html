@@ -1,0 +1,26 @@
+﻿{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'csvdata/csvcss.css' %}">
+
+<body>
+    <nav class="col-1">
+        <div>
+            <a class="" href="/CSVdata/">Files</a>
+        </div>
+    </nav>
+    <div class="col-2">
+        <header>Upload CSV Files</header>
+        <main class="content">
+            <form enctype="multipart/form-data" method="POST" action="">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <input type="submit" value="Upload" />
+            </form>
+            <article>
+                {{loaded_data | safe}}
+            </article>
+        </main>
+        <footer></footer>
+    </div>
+</body>

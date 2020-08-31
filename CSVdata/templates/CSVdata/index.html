@@ -1,0 +1,28 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'csvdata/csvcss.css' %}">
+
+<body>
+    <nav class="col-1">
+        <div>
+            <a class="menuitem" href="/CSVdata/upload">Upload</a>
+        </div>
+    </nav>
+    <div class="col-2">
+        <header>CSV Data Files</header>
+        <main class="content">
+            {% if current_file_list %}
+            <div id="results">
+                <ul class="csvList">
+                    {% for csvFile in current_file_list %}
+                    <li><img src="{% static 'csvdata/msxlsicon.ico' %}" /><a href="{% url 'CSVdata:View' csvFile.id %}">{{ csvFile.file_name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% else %}
+            <p>No files have been posted.</p>
+            {% endif %}
+        </main>
+        <footer></footer>
+    </div>
+</body>
