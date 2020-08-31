@@ -25,6 +25,7 @@ body {
     justify-content: space-between;
     flex: 5;
     flex-grow: 4;
+    max-width:100%;
     width: 100%
 }
 
