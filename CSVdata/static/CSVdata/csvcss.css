@@ -12,7 +12,7 @@ body {
     width: 100%;
 }
 
-.col-1 {
+.body-col-1 {
     background: #c9e4f8;
     display: flex;
     flex-basis: 250px;
